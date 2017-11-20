@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 700px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var decode = {lat: 45.502057, lng: -73.569345};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: decode
+        });
+        var decode = new google.maps.Marker({
+          position: {lat: 45.502057, lng: -73.569345},
+          map: map,
+          title: "DecodeMTL"
+        });
+
+        var rest01 = new google.maps.Marker({
+          position: {lat: 45.5047528, lng: -73.5725866},
+          map: map,
+          title: "A&W"
+        });
+        
+        var rest02 = new google.maps.Marker({
+          position: {lat: 45.5033042, lng: -73.5694826},
+          map: map,
+          title: "McDonald's"
+        });
+
+        var rest03 = new google.maps.Marker({
+          position: {lat: 45.504193, lng: -73.5683899},
+          map: map,
+          title: "Burger King",
+          icon: "ping.png"
+        });
+
+        var rest04 = new google.maps.Marker({
+          position: {lat: 45.5028241, lng: -73.5698116},
+          map: map,
+          title: "Frite Alors - McGill"
+        });
+
+        var rest05 = new google.maps.Marker({
+          position: {lat: 45.4972869, lng: -73.5772414},
+          map: map,
+          title: "Le Gourmet Burger"
+        });
+
+        var rest06 = new google.maps.Marker({
+          position: {lat: 45.4987321, lng: -73.5739984},
+          map: map,
+          title: "Mister Steer Restaurant",
+        });
+
+        var rest07 = new google.maps.Marker({
+          position: {lat: 45.4987321, lng: -73.570119},
+          map: map,
+          title: "Five Guys",
+        });
+
+        var rest08 = new google.maps.Marker({
+          position: {lat: 45.502117, lng: -73.570659},
+          map: map,
+          title: "3 brasseurs McGill",
+        });
+
+        var rest09 = new google.maps.Marker({
+          position: {lat: 45.501495, lng: -73.571138},
+          map: map,
+          title: "Reuben's Restaurant Delicatessen",
+        });
+
+        var rest10 = new google.maps.Marker({
+          position: {lat: 45.500547, lng: -73.568940},
+          map: map,
+          title: "The Keg Steakhouse + Bar - Place Ville Marie",
+        });
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNm92ATO5QR1wtgZEhdDYbjI6xjyqLOOQ&callback=initMap">
+    </script>
+  </body>
+</html>
