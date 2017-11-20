@@ -1,4 +1,4 @@
-const FOOMATO = 'http://localhost:5000'
+const FOOMATO = 'https://foomato.herokuapp.com'
 
 
 class FoomenuAPI {

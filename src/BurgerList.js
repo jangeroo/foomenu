@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem.js'
-import foomenu from './backend-mock.js';
+import { Link } from 'react-router-dom';
+import ListItem from './ListItem.js';
+import foomenu from './backend.js';
 
 
 class BurgerList extends Component {
@@ -17,7 +18,9 @@ class BurgerList extends Component {
           {this.props.appState.burgers.map((burger, index) => {
             return (
               <li key={index}>
-                <ListItem item={burger} />
+                <Link to="/map">
+                  <ListItem item={burger} />
+                </Link>
               </li>)
           })}
         </ol>

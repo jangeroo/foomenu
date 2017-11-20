@@ -4,6 +4,7 @@ import Home from './Home.js';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import BurgerList from './BurgerList.js'
+import MapContainer from './MapContainer'
 
 
 class App extends Component {
@@ -35,6 +36,16 @@ class App extends Component {
               render={() => (
                 <BurgerList sortOrder={'price'}
                   appState={this.state} updateAppState={this.updateAppState}
+                />
+              )}
+            />
+
+            <Route exact path="/map"
+              render={() => (
+                <MapContainer
+                  appState={this.state}
+                  initialCenter={this.state.burgers[0].restaurant.location}
+                  markers={this.state.burgers}
                 />
               )}
             />
