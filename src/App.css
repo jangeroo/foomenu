@@ -2,27 +2,167 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  padding: 5px;
+  height:60px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  min-width:300px;
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
   color: white;
+  text-decoration: none;
+  font-family: 'Sniglet', cursive;
+}
+.linkStyle:link{
+  color: inherit;
+  text-decoration: inherit;
+ }
+
+.linkStyle:hover{
+ color: inherit;
+ text-decoration: inherit;
 }
 
-.App-title {
-  font-size: 1.5em;
+.linkStyle:visited{
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.App-intro {
-  font-size: large;
+.linkStyle:active{
+  color: inherit;
+  text-decoration: inherit;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.linkStyle:focus{
+  color: inherit;
+  text-decoration: inherit;
 }
+
+.App-navigation-bar {
+  background-color: #222;
+  height: 50px;
+  padding: 5px;
+  position: fixed;
+  bottom:0;
+  width:100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-button-container{
+  width: 50px;
+  height: 50px;
+}
+
+.menu-button{
+  background: url(./images/mobile_hamburger.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border: none;
+  background-position: center center;
+}
+
+.account-button {
+  background: url(./images/mobile_account.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border: none;
+  background-position: center center;
+}
+
+.cart-button {
+  background: url(./images/mobile_cart.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border: none;
+  background-position: center center;
+}
+
+.search-button {
+  background: url(./images/mobile_search.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border: none;
+  background-position: center center;
+}
+
+.App-mid-content{
+  height: calc(100vh - 60px - 70px);
+}
+
+.App-cheapest-content{
+  height: 100%;
+}
+
+.cheapest-container{
+ height: 100%;
+}
+
+.App-home-content{
+  height:100%;
+}
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height:100%;
+}
+
+.btn {
+  font-size: 2.5rem;
+  color: white;
+  text-decoration: none;
+  font-family: 'Sniglet', cursive;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 20px auto;
+  padding: 10px 20px 10px 20px;
+  border-style: none;
+  background-color: #222;
+  width: 200px;
+}
+
+.App-cheapest-content {
+  height: 100%;
+  min-width: 300px;
+}
+
+.App-cheapest-content ol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height:100%;
+  margin: 0px;
+}
+
+
+.item-details{
+padding-right: 10px;
+}
+
+.item-name{
+  text-align: left;
+}
+
+.item-restaurant{
+  text-align: left;
+}
+
+.item-price{
+  float:right;
+}
+
+.item-rate{
+  float:right;
+}
+
+
