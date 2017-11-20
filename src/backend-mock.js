@@ -27,7 +27,7 @@ var mockBurgerList = [
     price: 2.99,
     restaurant: {
       name: 'A&W',
-      location: { latitude: 45, longitude: 32 }
+      location: { lat: 45, lng: 32 }
     }
   },
   {
@@ -35,7 +35,7 @@ var mockBurgerList = [
     price: 3.99,
     restaurant: {
       name: 'McDonalds',
-      location: { latitude: 45, longitude: 32 }
+      location: { lat: 45, lng: 32 }
     }
   },
   {
@@ -43,7 +43,7 @@ var mockBurgerList = [
     price: 4.49,
     restaurant: {
       name: 'A&W',
-      location: { latitude: 45, longitude: 32 }
+      location: { lat: 45, lng: 32 }
     }
   },
   {
@@ -51,7 +51,7 @@ var mockBurgerList = [
     price: 4.99,
     restaurant: {
       name: 'Burger King',
-      location: { latitude: 45, longitude: 32 }
+      location: { lat: 45, lng: 32 }
     }
   }
 ]

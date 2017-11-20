@@ -10,8 +10,8 @@ describe('getCheapestBurger', () => {
     expect(burgers[0]).toHaveProperty('restaurant')
     expect(burgers[0].restaurant).toHaveProperty('name')
     expect(burgers[0].restaurant).toHaveProperty('location')
-    expect(burgers[0].restaurant.location).toHaveProperty('latitude')
-    expect(burgers[0].restaurant.location).toHaveProperty('longitude')
+    expect(burgers[0].restaurant.location).toHaveProperty('lat')
+    expect(burgers[0].restaurant.location).toHaveProperty('lng')
   });
   it('sorts the list of Burger objects by price, ascending', async () => {
     var burgers = await foomenu.getCheapestBurger()
@@ -28,8 +28,8 @@ describe('getAllBurgers', () => {
     expect(burgers[0]).toHaveProperty('restaurant')
     expect(burgers[0].restaurant).toHaveProperty('name')
     expect(burgers[0].restaurant).toHaveProperty('location')
-    expect(burgers[0].restaurant.location).toHaveProperty('latitude')
-    expect(burgers[0].restaurant.location).toHaveProperty('longitude')
+    expect(burgers[0].restaurant.location).toHaveProperty('lat')
+    expect(burgers[0].restaurant.location).toHaveProperty('lng')
   });
 })
 
