@@ -38,7 +38,10 @@ class FoomenuAPI {
     let dishes = zomato_menu.daily_menu[0].dishes
       if (dishes[0]) return {
         name: restaurant.name,
-        location: restaurant.location,
+        location: {
+          lat: restaurant.location.latitude,
+          lng: restaurant.location.longitude
+        },
         menu: dishes
       }
   }
