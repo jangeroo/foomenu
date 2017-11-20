@@ -10,14 +10,14 @@ class ListItem extends Component {
       }
 
     render() {
-        console.log(this.props.item);
         return (
             <div className="item-details">
-                <div className="item-price">{Number(this.props.item.price).toLocaleString('en')}</div>
+                <div className="item-price">${Number(this.props.item.price).toLocaleString('en')}</div>
                 <Link to={`/browse/${this.props.item.name}`}><div className="item-name">{this.props.item.name}</div></Link>
                 <div className="item-rate"><ReactStars count={5} onChange={this._ratingChanged} size={18} color2={'#ffd700'}/></div>
                 <div className="item-restaurant">Restaurant: {this.props.item.restaurant.name}</div>
-                <div className="item-overall-rating"><ReactStars count={5} value="4.5" edit={false} size={10} color2={'#ffd700'}/></div>
+                <div className="item-overall-rating"><ReactStars count={5} value={4.5} edit={false} size={10} color2={'#ffd700'}/></div>
+                <hr/>
                 
 
             </div>

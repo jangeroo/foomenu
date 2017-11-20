@@ -10,6 +10,7 @@ class Cheapest extends Component {
         this.state = { item: [] }
     }
     componentWillMount() {
+        this.props.backBtnUpdate({backBtn: true});
         a.getCheapestBurger()
             .then(dishes => {
                 let arrItemObjs = []
@@ -30,7 +31,7 @@ class Cheapest extends Component {
             <div className="App-cheapest-content">
                 <ol>
                     {this.state.item.map(item => {
-                        return (<li>
+                        return (<li key={item.name}>
                                 <ListItem item={item} />
                                 </li>)
                     })}

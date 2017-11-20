@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       cheapestBurger: [],
+      backBtn: false
     }
   }
 
@@ -26,14 +27,14 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           {/* <Header> contains the ALIBAY sign and link to HOMEPAGE */}
-          <Header />
+          <Route path="/" render={(routeProps)=><Header backBtn={this.state.backBtn} routeProps={routeProps}/>} />
 
 
           {/* MID-CONTENT contains all the routed paths */}
           <div className="App-mid-content">
 
-            <Route exact path="/" render={() => <Home />} />
-            <Route exact path="/cheapest" render={() => <Cheapest />} />
+            <Route exact path="/" render={() => <Home backBtnUpdate={this.updateState}/>} />
+            <Route exact path="/cheapest" render={(routeProps) => <Cheapest routeProps={routeProps} backBtnUpdate={this.updateState}/>} />
 
           </div>
 

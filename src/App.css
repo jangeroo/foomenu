@@ -19,6 +19,21 @@
   text-decoration: none;
   font-family: 'Sniglet', cursive;
 }
+
+.backBtn {
+  position: absolute;
+  left: 10px;
+  z-index: 1;
+  color: #222;
+  text-decoration: none;
+  font-family: 'Sniglet', cursive;
+  border-radius: 10px;
+  font-size: 1em;
+  padding: 5px 10px;
+  border-style: none;
+  background-color: white;
+}
+
 .linkStyle:link{
   color: inherit;
   text-decoration: inherit;
@@ -146,7 +161,12 @@
 
 
 .item-details{
-padding-right: 10px;
+  padding-right: 40px;
+  background: url(./images/next_icon.png);
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: right center;
+
 }
 
 .item-name{
