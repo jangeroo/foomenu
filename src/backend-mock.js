@@ -1,10 +1,17 @@
 class FoomenuAPI {
   getCheapestBurger = async () => {
-    return await mockBurgerList
+    return await this.getAllBurgers()
+  }
+
+  getNearestBurger = async () => {
+    return await this.getAllBurgers()
   }
 
   getAllBurgers = async () => {
-    return await mockBurgerList
+    return await mockBurgerList.map(burger => {
+      burger['distance'] = Math.floor(Math.random() * 1000)
+      return burger
+    })
   }
 
   getRestaurants = async () => {

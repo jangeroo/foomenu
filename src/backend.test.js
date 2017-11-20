@@ -12,6 +12,8 @@ describe('getCheapestBurger', () => {
     expect(burgers[0].restaurant).toHaveProperty('location')
     expect(burgers[0].restaurant.location).toHaveProperty('lat')
     expect(burgers[0].restaurant.location).toHaveProperty('lng')
+    expect(burgers[0]).toHaveProperty('distance')
+    expect(typeof parseFloat(burgers[0].distance)).toBe('number')
   });
   it('sorts the list of Burger objects by price, ascending', async () => {
     var burgers = await foomenu.getCheapestBurger()
@@ -31,7 +33,7 @@ describe('getNearestBurger', () => {
     expect(burgers[0].restaurant.location).toHaveProperty('lat')
     expect(burgers[0].restaurant.location).toHaveProperty('lng')
     expect(burgers[0]).toHaveProperty('distance')
-    expect(parseFloat(burgers[0].distance)).toBeInstanceOf('number')
+    expect(typeof parseFloat(burgers[0].distance)).toBe('number')
   });
   it('sorts the list of Burger objects by distance, ascending', async () => {
     var burgers = await foomenu.getNearestBurger()
@@ -50,6 +52,8 @@ describe('getAllBurgers', () => {
     expect(burgers[0].restaurant).toHaveProperty('location')
     expect(burgers[0].restaurant.location).toHaveProperty('lat')
     expect(burgers[0].restaurant.location).toHaveProperty('lng')
+    expect(burgers[0]).toHaveProperty('distance')
+    expect(typeof parseFloat(burgers[0].distance)).toBe('number')
   });
 })
 
