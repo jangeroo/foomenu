@@ -6,24 +6,31 @@ import foomenu from './backend.js';
 
 class BurgerList extends Component {
 
+  constructor(){
+    super();
+    this.state = {showItemInfo: [],}
+  }
+
   async componentWillMount() {
-    if (this.props.sortOrder === 'price')
-      this.props.updateAppState({ burgers: await foomenu.getCheapestBurger() })
+    if (this.props.sortOrder === 'price'){
+      this.props.updateAppState({ burgers: await foomenu.getCheapestBurger() });
+    }
+  }
+  _closeBurgerList = () =>{
+    this.props.updateAppState({sideBarIsOpen: false});
   }
 
   render() {
     return (
       <div className="App-cheapest-content">
-        <ol>
           {this.props.appState.burgers.map((burger, index) => {
             return (
-              <li key={index}>
-                <Link to="/map">
+              <div className="item-container" key={index}>
+                <Link className="linkStyle" to="/map" onClick={this._closeBurgerList}>
                   <ListItem item={burger} />
                 </Link>
-              </li>)
+              </div>)
           })}
-        </ol>
       </div>
     );
   }

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Home extends Component {
+
+  _openBurgerList = () =>{
+    this.props.updateAppState({sideBarIsOpen: true})
+  }
 
   render() {
     return (
       <div className="App-home-content">
         <div className="home-container">
-          <Link className="btn" to="/cheapest">Cheapest burger</Link>
+          <button className="btn" onClick={this._openBurgerList} >Cheapest burger</button>
         </div>
       </div>
     );
