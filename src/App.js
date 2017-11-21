@@ -29,8 +29,7 @@ class App extends Component {
 
           {/* <Sidebar> contains burger list! */}
           <Route path="/" render={() => (
-            <Sidebar sortOrder={'price'}
-              appState={this.state} updateAppState={this.updateAppState} />
+            <Sidebar appState={this.state} updateAppState={this.updateAppState} />
           )} />
 
           {/* <Header> contains the FOOMENU sign and link to HOMEPAGE */}

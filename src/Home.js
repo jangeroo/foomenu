@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import foomenu from './backend.js';
 
 class Home extends Component {
 
   _openBurgerList = () =>{
-    this.props.updateAppState({sideBarIsOpen: true})
+    this.props.updateAppState({})
+  }
+
+  _handleCheapest = async () => {
+    this.props.updateAppState({
+      burgers: await foomenu.getCheapestBurger(),
+      sideBarIsOpen: true
+    });
   }
 
   render() {
     return (
       <div className="App-home-content">
         <div className="home-container">
-          <button className="btn" onClick={this._openBurgerList} >Cheapest burger</button>
+          <button className="btn" onClick={this._handleCheapest} >Cheapest burger</button>
         </div>
       </div>
     );

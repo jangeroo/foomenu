@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from './ListItem.js';
-import foomenu from './backend.js';
+
 
 
 class BurgerList extends Component {
-
-  constructor(){
-    super();
-    this.state = {showItemInfo: [],}
-  }
-
-  async componentWillMount() {
-    if (this.props.sortOrder === 'price'){
-      this.props.updateAppState({ burgers: await foomenu.getCheapestBurger() });
-    }
-  }
-  _closeBurgerList = () =>{
-    this.props.updateAppState({sideBarIsOpen: false});
-  }
 
   render() {
     return (
@@ -26,7 +12,7 @@ class BurgerList extends Component {
           {this.props.appState.burgers.map((burger, index) => {
             return (
               <div className="item-container" key={index}>
-                <Link className="linkStyle" to="/map" onClick={this._closeBurgerList}>
+                <Link className="linkStyle" to="/map" onClick={this.props.closeMenu}>
                   <ListItem item={burger} />
                 </Link>
               </div>)
