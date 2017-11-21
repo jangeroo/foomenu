@@ -50,16 +50,6 @@ class App extends Component {
               )}
             />
 
-            <Route exact path="/map"
-              render={() => (
-                <MapContainer
-                  appState={this.state}
-                  initialCenter={this.state.burgers[0].restaurant.location}
-                  markers={this.state.burgers}
-                />
-              )}
-            />
-
           </div>
         </div>
       </BrowserRouter>
