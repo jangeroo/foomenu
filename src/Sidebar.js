@@ -4,11 +4,15 @@ import BurgerList from './BurgerList.js';
 
 class Sidebar extends React.Component {
 
+    _closeBurgerList = () => {
+        this.props.updateAppState({ sideBarIsOpen: false });
+    }
+
     render() {
         return (<div className="sidebar-container">
             <Menu width={'50%'} isOpen={this.props.appState.sideBarIsOpen} >
                 <BurgerList
-                    sortOrder={this.props.sortOrder}
+                    closeBurgerList={this._closeBurgerList}
                     appState={this.props.appState}
                     updateAppState={this.props.updateAppState} />
             </Menu></div>
