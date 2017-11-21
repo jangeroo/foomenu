@@ -4,7 +4,7 @@ import BurgerList from './BurgerList.js';
 
 class Sidebar extends React.Component {
 
-    _closeBurgerList = () => {
+    _closeMenu = () => {
         this.props.updateAppState({ sideBarIsOpen: false });
     }
 
@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
         return (<div className="sidebar-container">
             <Menu width={'50%'} isOpen={this.props.appState.sideBarIsOpen} >
                 <BurgerList
-                    closeBurgerList={this._closeBurgerList}
+                    closeBurgerList={this._closeMenu}
                     appState={this.props.appState}
                     updateAppState={this.props.updateAppState} />
             </Menu></div>
