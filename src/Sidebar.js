@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
         return (<div className="sidebar-container">
             <Menu width={'50%'} isOpen={this.props.appState.sideBarIsOpen} >
                 <BurgerList
-                    closeBurgerList={this._closeMenu}
+                    closeMenu={this._closeMenu}
                     appState={this.props.appState}
                     updateAppState={this.props.updateAppState} />
             </Menu></div>
