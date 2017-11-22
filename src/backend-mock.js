@@ -1,10 +1,16 @@
 class FoomenuAPI {
   getCheapestBurger = async () => {
-    return await this.getAllBurgers()
+    let burgers = await this.getAllBurgers()
+    return burgers.sort((a, b) => {
+      return a.price - b.price
+    })
   }
 
   getNearestBurger = async () => {
-    return await this.getAllBurgers()
+    let burgers = await this.getAllBurgers()
+    return burgers.sort((a, b) => {
+      return a.distance - b.distance
+    })
   }
 
   getAllBurgers = async () => {
@@ -30,10 +36,10 @@ var mockRestaurantList = [
 
 var mockBurgerList = [
   {
-    name: 'Teen Burger',
-    price: 2.99,
+    name: 'Whopper',
+    price: 4.99,
     restaurant: {
-      name: 'A&W',
+      name: 'Burger King',
       location: { lat: 45, lng: 32 }
     }
   },
@@ -46,6 +52,14 @@ var mockBurgerList = [
     }
   },
   {
+    name: 'Teen Burger',
+    price: 2.99,
+    restaurant: {
+      name: 'A&W',
+      location: { lat: 45, lng: 32 }
+    }
+  },
+  {
     name: 'Momma Burger',
     price: 4.49,
     restaurant: {
@@ -53,13 +67,5 @@ var mockBurgerList = [
       location: { lat: 45, lng: 32 }
     }
   },
-  {
-    name: 'Whopper',
-    price: 4.99,
-    restaurant: {
-      name: 'Burger King',
-      location: { lat: 45, lng: 32 }
-    }
-  }
 ]
 
