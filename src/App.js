@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import MapContainer from './MapContainer';
 import Header from './Header.js';
 import Home from './Home.js';
-import { BrowserRouter, Route } from 'react-router-dom';
-import './App.css';
-import MapContainer from './MapContainer';
 import Sidebar from './Sidebar.js';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -56,8 +56,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           {/* <Sidebar> contains burger list! */}
-          <Route
-            path="/"
+          <Route path="/"
             render={() => {
               if (this.state.sortOrder !== null)
                 return (
@@ -77,9 +76,7 @@ class App extends Component {
           <div className="App-mid-content">
             {/* On new entry to web app, render a map of user's current
             location at the center, with the home buttons floating */}
-            <Route
-              exact
-              path="/"
+            <Route exact path="/"
               render={() => {
                 return (
                   <div className="frontPage">
@@ -97,9 +94,7 @@ class App extends Component {
             {/* When a user has selected a burger, the map is rendered
              at the url path specified by the restaurant's location,
              and marked with a red marker */}
-            <Route
-              exact
-              path="/map/lng=:lng/lat=:lat"
+            <Route exact path="/map/lat=:lat/lng=:lng"
               render={routeProps => {
                 this.state.mapCenter = {
                   lng: routeProps.match.params.lng,
