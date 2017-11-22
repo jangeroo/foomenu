@@ -1,4 +1,4 @@
-import foomenu from './backend'
+import foomenu from './backend-mock'
 
 
 describe('getCheapestBurger', () => {

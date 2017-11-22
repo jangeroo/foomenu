@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem.js'
-import foomenu from './backend-mock.js';
+import { Link } from 'react-router-dom';
+import ListItem from './ListItem.js';
+
 
 
 class BurgerList extends Component {
 
-  async componentWillMount() {
-    if (this.props.sortOrder === 'price')
-      this.props.updateAppState({ burgers: await foomenu.getCheapestBurger() })
-  }
-
   render() {
     return (
       <div className="App-cheapest-content">
-        <ol>
           {this.props.appState.burgers.map((burger, index) => {
             return (
-              <li key={index}>
-                <ListItem item={burger} />
-              </li>)
+              <div className="item-container" key={index}>
+                <Link className="linkStyle" to="/map" onClick={this.props.closeMenu}>
+                  <ListItem item={burger} />
+                </Link>
+              </div>)
           })}
-        </ol>
       </div>
     );
   }
