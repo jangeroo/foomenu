@@ -21,7 +21,10 @@ class App extends Component {
       mapCenter: {
         lat: null,
         lng: null
-      }
+      },
+      showingInfoWindow: false,
+      activeMarker: null,
+      selectedPlace: null
     };
   }
 
@@ -85,6 +88,7 @@ class App extends Component {
                       initialCenter={this.state.currentLocation}
                       center={this.state.mapCenter}
                       markers={this.state.burgers}
+                      updateAppState={this.updateAppState}
                     />
                     <Home updateAppState={this.updateAppState} />
                   </div>
@@ -106,6 +110,7 @@ class App extends Component {
                     initialCenter={this.state.mapCenter}
                     center={this.state.mapCenter}
                     markers={this.state.burgers}
+                    updateAppState={this.updateAppState}
                   />
                 );
               }}
