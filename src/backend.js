@@ -73,25 +73,41 @@ class FoomenuAPI {
 
   __getCurrentLocation = () => {
     // NOTE: THIS IS DECODEMTL'S COORDINATES, FOR PRACTICE
-    return {lat: 45.502057, lng: -73.569345 }
-  }
-  __locationToString = location => {
-    return `${location.lat},${location.lng}`
+    return { lat: 45.502057, lng: -73.569345 }
   }
 
-  // __getDistanceToBurger = async (burger) => {
-  //   let origin = this.__locationToString(this.__getCurrentLocation())
-  //   let destination = this.__locationToString(burger.restaurant.location)
-  //   let dist = (await distance.get({
-  //     origin: origin,
-  //     destination: destination,
-  //     mode: 'walking'
-  //   })).distanceValue
-  //   return dist
-  // }
+  __getDistanceInMetresBetweenCoordinates(origin, destination) {
+    function degreesToRadians(degrees) {
+      return degrees * Math.PI / 180;
+    }
 
-  __addDistanceToBurger = async (burger) => {
-    // burger['distance'] = await this.__getDistanceToBurger(burger)
+    let lat1 = origin.lat
+    let lat2 = destination.lat
+    let lng1 = origin.lng
+    let lng2 = destination.lng
+
+    var earthRadiusKm = 6371;
+
+    var dLat = degreesToRadians(lat2 - lat1);
+    var dLng = degreesToRadians(lng2 - lng1);
+
+    lat1 = degreesToRadians(lat1);
+    lat2 = degreesToRadians(lat2);
+
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return earthRadiusKm * c * 1000;
+  }
+
+  __getDistanceToBurger = burger => {
+    let origin = this.__getCurrentLocation()
+    let destination = burger.restaurant.location
+    return this.__getDistanceInMetresBetweenCoordinates(origin, destination)
+  }
+
+  __addDistanceToBurger = burger => {
+    burger['distance'] = this.__getDistanceToBurger(burger)
     return burger
   }
 
