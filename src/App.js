@@ -75,20 +75,40 @@ class App extends Component {
 
           {/* MID-CONTENT contains all the routed paths */}
           <div className="App-mid-content">
+            {/* On new entry to web app, render a map of user's current
+            location at the center, with the home buttons floating */}
             <Route
               exact
               path="/"
-              render={() => <Home updateAppState={this.updateAppState} />}
+              render={() => {
+                return (
+                  <div className="frontPage">
+                    <MapContainer
+                      appState={this.state}
+                      initialCenter={this.state.currentLocation}
+                      center={this.state.mapCenter}
+                      markers={this.state.burgers}
+                    />
+                    <Home updateAppState={this.updateAppState} />
+                  </div>
+                );
+              }}
             />
-
+            {/* When a user has selected a burger, the map is rendered
+             at the url path specified by the restaurant's location,
+             and marked with a red marker */}
             <Route
               exact
-              path="/map"
-              render={() => {
+              path="/map/lng=:lng/lat=:lat"
+              render={routeProps => {
+                this.state.mapCenter = {
+                  lng: routeProps.match.params.lng,
+                  lat: routeProps.match.params.lat
+                };
                 return (
                   <MapContainer
                     appState={this.state}
-                    initialCenter={this.state.currentLocation}
+                    initialCenter={this.state.mapCenter}
                     center={this.state.mapCenter}
                     markers={this.state.burgers}
                   />

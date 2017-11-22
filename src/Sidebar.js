@@ -5,10 +5,13 @@ import BurgerList from './BurgerList.js';
 class Sidebar extends React.Component {
   _closeMenu = index => {
     this.props.updateAppState({
+      burgerIndex: index,
       sideBarIsOpen: false,
       mapCenter: {
-        lat: this.props.appState.burgers[index].restaurant.location.lat,
-        lng: this.props.appState.burgers[index].restaurant.location.lng
+        lat: this.props.appState.burgers[this.props.appState.burgerIndex]
+          .restaurant.location.lat,
+        lng: this.props.appState.burgers[this.props.appState.burgerIndex]
+          .restaurant.location.lng
       }
     });
   };

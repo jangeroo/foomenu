@@ -8,25 +8,37 @@ export class MapContainer extends Component {
       height: '100%',
       width: '100%'
     };
+
     return (
-      <Map
-        google={this.props.google}
-        style={style}
-        initialCenter={this.props.initialCenter}
-        center={this.props.center}
-        zoom={15}
-      >
-        {this.props.markers.map((burger, index) => {
-          return (
+      <div className="Map-contents">
+        <Map
+          google={this.props.google}
+          style={style}
+          initialCenter={this.props.initialCenter}
+          center={this.props.center}
+          zoom={12}
+        >
+          {this.props.markers.length !== 0 ? (
+            this.props.markers.map((burger, index) => {
+              return (
+                <Marker
+                  key={index}
+                  title={`${index}: ${burger.name}`}
+                  name={burger.name}
+                  position={burger.restaurant.location}
+                />
+              );
+            })
+          ) : (
             <Marker
-              key={index}
-              title={`${index}: ${burger.name}`}
-              name={burger.name}
-              position={burger.restaurant.location}
+              key={'My Location'}
+              title={`My Coordinates: ${this.props.center}`}
+              name={'My Location'}
+              position={this.props.center}
             />
-          );
-        })}
-      </Map>
+          )}
+        </Map>
+      </div>
     );
   }
 }

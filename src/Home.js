@@ -15,9 +15,12 @@ class Home extends Component {
     return (
       <div className="App-home-content">
         <div className="home-container">
-          <Link className="btn" onClick={this._handleCheapest} to="/map">
+          <button className="btn" onClick={this._handleCheapest}>
             Cheapest burger
-          </Link>
+          </button>
+          <button className="btn" onClick={this._handleCheapest}>
+            Nearest burger
+          </button>
         </div>
       </div>
     );

@@ -12,7 +12,8 @@ class BurgerList extends Component {
             <div className="item-container" key={index}>
               <Link
                 className="linkStyle"
-                to="/map"
+                to={`/map/lng=${burger.restaurant.location.lng}/lat=${burger
+                  .restaurant.location.lat}`}
                 onClick={() => this.props.closeMenu(index)}
               >
                 <ListItem item={burger} />
