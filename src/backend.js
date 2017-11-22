@@ -1,8 +1,3 @@
-const distance = require('google-distance')
-const { promisify } = require('util')
-
-distance.get = promisify(distance.get)
-
 const FOOMATO = 'http://localhost:5000'
 
 
@@ -84,19 +79,19 @@ class FoomenuAPI {
     return `${location.lat},${location.lng}`
   }
 
-  __getDistanceToBurger = async (burger) => {
-    let origin = this.__locationToString(this.__getCurrentLocation())
-    let destination = this.__locationToString(burger.restaurant.location)
-    let dist = (await distance.get({
-      origin: origin,
-      destination: destination,
-      mode: 'walking'
-    })).distanceValue
-    return dist
-  }
+  // __getDistanceToBurger = async (burger) => {
+  //   let origin = this.__locationToString(this.__getCurrentLocation())
+  //   let destination = this.__locationToString(burger.restaurant.location)
+  //   let dist = (await distance.get({
+  //     origin: origin,
+  //     destination: destination,
+  //     mode: 'walking'
+  //   })).distanceValue
+  //   return dist
+  // }
 
   __addDistanceToBurger = async (burger) => {
-    burger['distance'] = await this.__getDistanceToBurger(burger)
+    // burger['distance'] = await this.__getDistanceToBurger(burger)
     return burger
   }
 
