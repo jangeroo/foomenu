@@ -40,6 +40,25 @@
   text-decoration: inherit;
 }
 
+.navBar{
+  background-color: white;
+  text-decoration: none;
+}
+
+.navBarRight {
+  text-align: right;
+}
+
+.navBarLinks{
+  font-family: Arial;
+  color: black;
+  font-size: 20px;
+  padding: 0 5px;
+  text-decoration: none;
+  border-style: none;
+  border-width:0px;
+}
+
 .linkStyle:focus{
   color: inherit;
   text-decoration: inherit;
@@ -114,4 +133,17 @@
 
 .item-price{
   float:right;
+}
+
+.btnLogin {
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  font-family: 'Sniglet', cursive;
+  border-radius: 10px;
+  margin: 20px auto;
+  border-style: none;
+  padding: 5px;
+  background-color: #222;
+  width: 300px;
 }
