@@ -14,7 +14,7 @@ export class MapContainer extends Component {
 
   _onMapClick = () => {
     console.log('map clicked');
-    if (this.state.showingInfoWindow) {
+    if (this.props.appState.showingInfoWindow) {
       this.props.updateAppState({
         showingInfoWindow: false,
         activeMarker: null
