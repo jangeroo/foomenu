@@ -1,16 +1,17 @@
 .App {
   text-align: center;
+  font-family: 'Sniglet', cursive;
 }
 
 .App-header {
   background-color: #222;
   padding: 5px;
-  height:60px;
-  display:flex;
+  height: 60px;
+  display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
-  min-width:300px;
+  min-width: 300px;
 }
 
 .App-header h1 {
@@ -20,52 +21,63 @@
   font-family: 'Sniglet', cursive;
 }
 
-.linkStyle:link{
-  color: inherit;
-  text-decoration: inherit;
- }
-
-.linkStyle:hover{
- color: inherit;
- text-decoration: inherit;
-}
-
-.linkStyle:visited{
+.linkStyle:link {
   color: inherit;
   text-decoration: inherit;
 }
 
-.linkStyle:active{
+.linkStyle:hover {
   color: inherit;
   text-decoration: inherit;
 }
 
-.linkStyle:focus{
+.linkStyle:visited {
   color: inherit;
   text-decoration: inherit;
 }
 
-.App-mid-content{
+.linkStyle:active {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.linkStyle:focus {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.App-mid-content {
   height: calc(100vh - 60px - 70px);
 }
 
-.App-cheapest-content{
+.App-cheapest-content {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+.cheapest-container {
   height: 100%;
 }
 
-.cheapest-container{
- height: 100%;
+.App-home-content {
+  height: calc(100vh - 60px - 70px);
 }
 
-.App-home-content{
-  height:100%;
-}
-
-.home-container{
+.home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height:100%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  padding: 0px 10px;
+  border-radius: 25px;
 }
 
 .btn {
@@ -82,36 +94,90 @@
   width: 200px;
 }
 
-.App-cheapest-content {
-  height: 100%;
-  min-width: 300px;
+.item-container {
+  padding: 20px;
+  border-bottom: 1px solid grey;
 }
 
-.App-cheapest-content ol{
+.item-container:hover {
+  border-left: red solid 5px;
+  background-color: lightgrey;
+}
+
+.item-details {
+  padding: 0px 10px;
+}
+
+.item-name {
+  text-align: left;
+}
+
+.item-restaurant {
+  text-align: left;
+}
+
+.item-price {
+  float: right;
+}
+
+.BurgerList-MapContainer-Container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height:100%;
-  margin: 0px;
+  flex-direction: row;
 }
 
-
-.item-details{
-  padding-right: 40px;
-  background-repeat: no-repeat;
-  background-size: 10%;
-  background-position: right center;
-
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  left: 17.5px;
+  top: 17.5px;
 }
 
-.item-name{
-  text-align: left;
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+  border-radius: 10px;
 }
 
-.item-restaurant{
-  text-align: left;
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
 }
 
-.item-price{
-  float:right;
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #222;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0;
+  font-size: 1.15em;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  box-sizing: border-box;
+  color: #222;
+  /* overflow: hidden; */
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
