@@ -120,6 +120,10 @@
   float: right;
 }
 
+.item-distance {
+  float: right;
+}
+
 .BurgerList-MapContainer-Container {
   display: flex;
   flex-direction: row;

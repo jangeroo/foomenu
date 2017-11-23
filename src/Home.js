@@ -10,12 +10,24 @@ class Home extends Component {
     });
   };
 
+  _handleNearest = async () => {
+    this.props.updateAppState({
+      sortOrder: 'distance',
+      burgers: await foomenu.getNearestBurger(),
+      sideBarIsOpen: true,
+      sideBarView: 'burgerList'
+    });
+  };
+
   render() {
     return (
       <div className="App-home-content">
         <div className="home-container">
           <button className="btn" onClick={this._handleCheapest}>
             Cheapest burger
+          </button>
+          <button className="btn" onClick={this._handleNearest}>
+            Nearest burger
           </button>
         </div>
       </div>

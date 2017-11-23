@@ -58,7 +58,7 @@ class App extends Component {
           {/* <Sidebar> contains burger list! */}
           <Route path="/"
             render={() => {
-              if (this.state.sortOrder !== null)
+              if (this.state.burgers.length != 0)
                 return (
                   <Sidebar
                     appState={this.state}

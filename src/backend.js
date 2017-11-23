@@ -105,7 +105,7 @@ class FoomenuAPI {
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
       Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return earthRadiusKm * c * 1000;
+    return Math.floor(earthRadiusKm * c * 1000);
   }
 
   __getDistanceToBurger = burger => {
