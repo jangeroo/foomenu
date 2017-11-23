@@ -24,7 +24,8 @@ class App extends Component {
       },
       showingInfoWindow: false,
       activeMarker: null,
-      selectedPlace: null
+      selectedPlace: null,
+      sideBarView: null
     };
   }
 
@@ -73,7 +74,15 @@ class App extends Component {
           />
 
           {/* <Header> contains the FOOMENU sign and link to HOMEPAGE */}
-          <Route path="/" render={() => <Header />} />
+          <Route
+            path="/"
+            render={() => (
+              <Header
+                appState={this.state}
+                updateAppState={this.updateAppState}
+              />
+            )}
+          />
 
           {/* MID-CONTENT contains all the routed paths */}
           <div className="App-mid-content">

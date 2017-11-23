@@ -6,7 +6,8 @@ class Home extends Component {
     this.props.updateAppState({
       sortOrder: 'price',
       burgers: await foomenu.getCheapestBurger(),
-      sideBarIsOpen: true
+      sideBarIsOpen: true,
+      sideBarView: 'burgerList'
     });
   };
 
