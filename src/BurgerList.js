@@ -10,11 +10,13 @@ class BurgerList extends Component {
         {this.props.appState.burgers.map((burger, index) => {
           return (
             <div className="item-container" key={index}>
-              <Link to={`/map/lat=${burger.restaurant.location.lat}/lng=${burger.restaurant.location.lng}`}
+              <Link
+                to={`/map/lat=${burger.restaurant.location.lat}/lng=${burger
+                  .restaurant.location.lng}`}
                 className="linkStyle"
                 onClick={() => this.props.closeMenu(index)}
               >
-                <ListItem item={burger} />
+                <ListItem item={burger} itemDisplay="list" />
               </Link>
             </div>
           );

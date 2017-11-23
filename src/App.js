@@ -24,7 +24,7 @@ class App extends Component {
       },
       showingInfoWindow: false,
       activeMarker: null,
-      selectedPlace: null,
+      selectedBurger: null,
       sideBarView: null
     };
   }

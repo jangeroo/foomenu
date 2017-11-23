@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
 import { GOOGLE_MAPS_API_KEY } from './config';
+import ListItem from './ListItem.js';
 
 export class MapContainer extends Component {
   _onBurgerMarkerClick = (burger, index, marker) => {
+    console.log(burger, index);
     this.props.updateAppState({
-      selectedPlace: { ...burger },
+      selectedBurger: this.props.appState.burgers[
+        this.props.appState.burgerIndex
+      ],
       activeMarker: marker,
       showingInfoWindow: true
     });
@@ -36,7 +40,7 @@ export class MapContainer extends Component {
           zoom={15}
           onClick={this._onMapClick}
         >
-          {/* Renders Markers of all the burgers on the map */}
+          {/* Render each marker*/}
           {this.props.markers.map((burger, index) => {
             return (
               <Marker
@@ -62,15 +66,12 @@ export class MapContainer extends Component {
             marker={this.props.appState.activeMarker}
             visible={this.props.appState.showingInfoWindow}
           >
-            {this.props.appState.selectedPlace ? (
+            {this.props.appState.selectedBurger ? (
               <div className="info-window">
-                <img
-                  src="http://www.myiconfinder.com/uploads/iconsets/256-256-50d2bb24a01a3c32510470c6cf675782-burger.png"
-                  height="100px"
-                  width="100px"
+                <ListItem
+                  item={this.props.appState.selectedBurger}
+                  itemDisplay="info-window"
                 />
-                <h1>{this.props.appState.selectedPlace.name}</h1>
-                RATE STARS (AVG RATING __)
               </div>
             ) : (
               void 0
