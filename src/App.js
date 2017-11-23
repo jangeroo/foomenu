@@ -6,6 +6,8 @@ import Home from './Home.js';
 import Sidebar from './Sidebar.js';
 import './App.css';
 
+let initialState = {};
+
 class App extends Component {
   constructor() {
     super();
@@ -21,11 +23,18 @@ class App extends Component {
       mapCenter: {
         lat: null,
         lng: null
-      }
+      },
+      showingInfoWindow: false,
+      activeMarker: null,
+      selectedPlace: null,
+      sideBarView: null
     };
   }
 
   componentWillMount() {
+    /* Copy original state for reset purposes */
+    initialState = { ...this.state };
+
     /* Get Current Location */
     this._getCurrentLocation();
   }
@@ -46,6 +55,10 @@ class App extends Component {
       });
     }
   }
+
+  reset = () => {
+    this.setState(initialState);
+  };
 
   updateAppState = update => {
     this.setState(update);
@@ -70,7 +83,7 @@ class App extends Component {
           />
 
           {/* <Header> contains the FOOMENU sign and link to HOMEPAGE */}
-          <Route path="/" render={() => <Header />} />
+          <Route path="/" render={() => <Header reset={this.reset} />} />
 
           {/* MID-CONTENT contains all the routed paths */}
           <div className="App-mid-content">
@@ -85,6 +98,7 @@ class App extends Component {
                       initialCenter={this.state.currentLocation}
                       center={this.state.mapCenter}
                       markers={this.state.burgers}
+                      updateAppState={this.updateAppState}
                     />
                     <Home updateAppState={this.updateAppState} />
                   </div>
@@ -106,6 +120,7 @@ class App extends Component {
                     initialCenter={this.state.mapCenter}
                     center={this.state.mapCenter}
                     markers={this.state.burgers}
+                    updateAppState={this.updateAppState}
                   />
                 );
               }}

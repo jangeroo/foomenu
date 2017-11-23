@@ -3,6 +3,20 @@ import { Link } from 'react-router-dom';
 import ListItem from './ListItem.js';
 
 class BurgerList extends Component {
+  _findBurgerOnMap(index) {
+    this.props.updateAppState({
+      burgerIndex: index,
+      mapCenter: {
+        lat: this.props.appState.burgers[this.props.appState.burgerIndex]
+          .restaurant.location.lat,
+        lng: this.props.appState.burgers[this.props.appState.burgerIndex]
+          .restaurant.location.lng
+      }
+    });
+    /* Closes Side Bar */
+    this.props.updateAppState({ sideBarIsOpen: false });
+  }
+
   render() {
     if (this.props.appState.burgers.length === 0) return <div>loading</div>;
     return (
@@ -12,7 +26,7 @@ class BurgerList extends Component {
             <div className="item-container" key={index}>
               <Link to={`/map/lat=${burger.restaurant.location.lat}/lng=${burger.restaurant.location.lng}`}
                 className="linkStyle"
-                onClick={() => this.props.closeMenu(index)}
+                onClick={() => this._findBurgerOnMap(index)}
               >
                 <ListItem item={burger} />
               </Link>
