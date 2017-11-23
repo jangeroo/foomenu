@@ -4,16 +4,14 @@ import { GOOGLE_MAPS_API_KEY } from './config';
 
 export class MapContainer extends Component {
   _onBurgerMarkerClick = (burger, index, marker) => {
-    console.log('marker clicked', burger.name, index);
     this.props.updateAppState({
-      selectedPlace: burger.name,
+      selectedPlace: { ...burger },
       activeMarker: marker,
       showingInfoWindow: true
     });
   };
 
   _onMapClick = () => {
-    console.log('map clicked');
     if (this.props.appState.showingInfoWindow) {
       this.props.updateAppState({
         showingInfoWindow: false,
@@ -64,9 +62,19 @@ export class MapContainer extends Component {
             marker={this.props.appState.activeMarker}
             visible={this.props.appState.showingInfoWindow}
           >
-            <div>
-              <h1>{this.props.appState.selectedPlace}</h1>
-            </div>
+            {this.props.appState.selectedPlace ? (
+              <div className="info-window">
+                <img
+                  src="http://www.myiconfinder.com/uploads/iconsets/256-256-50d2bb24a01a3c32510470c6cf675782-burger.png"
+                  height="100px"
+                  width="100px"
+                />
+                <h1>{this.props.appState.selectedPlace.name}</h1>
+                RATE STARS (AVG RATING __)
+              </div>
+            ) : (
+              void 0
+            )}
           </InfoWindow>
         </Map>
       </div>
