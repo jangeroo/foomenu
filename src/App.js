@@ -21,7 +21,11 @@ class App extends Component {
       mapCenter: {
         lat: null,
         lng: null
-      }
+      },
+      showingInfoWindow: false,
+      activeMarker: null,
+      selectedPlace: null,
+      sideBarView: null
     };
   }
 
@@ -56,9 +60,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           {/* <Sidebar> contains burger list! */}
-          <Route path="/"
+          <Route
+            path="/"
             render={() => {
-              if (this.state.burgers.length != 0)
+              if (this.state.burgers.length !== 0)
                 return (
                   <Sidebar
                     appState={this.state}
@@ -70,13 +75,23 @@ class App extends Component {
           />
 
           {/* <Header> contains the FOOMENU sign and link to HOMEPAGE */}
-          <Route path="/" render={() => <Header />} />
+          <Route
+            path="/"
+            render={() => (
+              <Header
+                appState={this.state}
+                updateAppState={this.updateAppState}
+              />
+            )}
+          />
 
           {/* MID-CONTENT contains all the routed paths */}
           <div className="App-mid-content">
             {/* On new entry to web app, render a map of user's current
             location at the center, with the home buttons floating */}
-            <Route exact path="/"
+            <Route
+              exact
+              path="/"
               render={() => {
                 return (
                   <div className="frontPage">
@@ -85,6 +100,7 @@ class App extends Component {
                       initialCenter={this.state.currentLocation}
                       center={this.state.mapCenter}
                       markers={this.state.burgers}
+                      updateAppState={this.updateAppState}
                     />
                     <Home updateAppState={this.updateAppState} />
                   </div>
@@ -94,7 +110,9 @@ class App extends Component {
             {/* When a user has selected a burger, the map is rendered
              at the url path specified by the restaurant's location,
              and marked with a red marker */}
-            <Route exact path="/map/lat=:lat/lng=:lng"
+            <Route
+              exact
+              path="/map/lat=:lat/lng=:lng"
               render={routeProps => {
                 this.state.mapCenter = {
                   lng: routeProps.match.params.lng,
@@ -106,6 +124,7 @@ class App extends Component {
                     initialCenter={this.state.mapCenter}
                     center={this.state.mapCenter}
                     markers={this.state.burgers}
+                    updateAppState={this.updateAppState}
                   />
                 );
               }}
