@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Sniglet', cursive;
+  /* font-family: 'Sniglet', cursive; */
   position: fixed;
   height: 100%;
   width: 100%;
@@ -50,7 +50,7 @@
 }
 
 .App-mid-content {
-  height: calc(100vh - 60px - 70px);
+  height: calc(100vh - 60px);
 }
 
 .App-cheapest-content {
@@ -65,22 +65,10 @@
 }
 
 .App-home-content {
-  height: calc(100vh - 60px - 70px);
+  height: calc(100vh - 60px);
 }
 
 .home-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -30%);
-  padding: 0px 10px;
-  border-radius: 25px;
 }
 
 .btn {
@@ -189,5 +177,104 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-.info-window {
+/*Start Menu css*/
+.burger-container {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.bar {
+  width: 40px;
+  height: 8px;
+  background-color: #222;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+.change1 {
+  /* -webkit-transform: rotate(45deg) translate(1px, 1px); */
+  transform: rotate(90deg) translate(16px, 16px);
+}
+
+.change2 {
+  transform: rotate(90deg);
+}
+
+.change3 {
+  /* -webkit-transform: rotate(45deg) translate(-8px, -8px); */
+  transform: rotate(90deg) translate(-16px, -16px);
+}
+
+.disc-container {
+  /* display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10%;
+  transform: translate(-50%, -50%); */
+}
+
+.disc {
+  bottom: 0;
+  left: 50%;
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  transition: 0.2s;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.disc:hover {
+  background-color: yellow;
+  width: 70px;
+  height: 70px;
+}
+
+.discImage1 {
+  background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/29975-200.png);
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+}
+
+.discImage2 {
+  background-image: url(https://image.flaticon.com/icons/png/512/64/64113.png);
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+}
+
+.discImage3 {
+  background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/25848-200.png);
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+}
+
+.discchange1 {
+  /* -webkit-transform: rotate(45deg) translate(1px, 1px); */
+  transform: translate(-150%, -50%);
+  opacity: 1;
+  background-color: #fff;
+  border: 2px solid;
+}
+
+.discchange2 {
+  transform: translate(-50%, -150%);
+  opacity: 1;
+  background-color: #fff;
+  border: 2px solid;
+}
+
+.discchange3 {
+  /* -webkit-transform: rotate(45deg) translate(-8px, -8px); */
+  transform: translate(50%, -50%);
+  opacity: 1;
+  background-color: #fff;
+  border: 2px solid;
 }

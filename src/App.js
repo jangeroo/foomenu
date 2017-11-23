@@ -5,6 +5,7 @@ import Header from './Header.js';
 import Home from './Home.js';
 import Sidebar from './Sidebar.js';
 import './App.css';
+import StartMenu from './StartMenu.js';
 
 class App extends Component {
   constructor() {
@@ -59,6 +60,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          {/* <StartMenu> contains buttons for homepage */}
+          <Route
+            path="/test"
+            render={() => (
+              <StartMenu
+                appState={this.state}
+                updateAppState={this.updateAppState}
+              />
+            )}
+          />
+
           {/* <Sidebar> contains burger list! */}
           <Route
             path="/"
@@ -107,6 +119,7 @@ class App extends Component {
                 );
               }}
             />
+
             {/* When a user has selected a burger, the map is rendered
              at the url path specified by the restaurant's location,
              and marked with a red marker */}

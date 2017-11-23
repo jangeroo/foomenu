@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import foomenu from './backend.js';
+import StartMenu from './StartMenu.js';
 
 class Home extends Component {
   _handleCheapest = async () => {
@@ -23,12 +24,10 @@ class Home extends Component {
     return (
       <div className="App-home-content">
         <div className="home-container">
-          <button className="btn" onClick={this._handleCheapest}>
-            Cheapest burger
-          </button>
-          <button className="btn" onClick={this._handleNearest}>
-            Nearest burger
-          </button>
+          <StartMenu
+            handleCheapest={this._handleCheapest}
+            handleNearest={this._handleNearest}
+          />
         </div>
       </div>
     );
